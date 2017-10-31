@@ -1,34 +1,43 @@
-<p>Hello</p>
-<app-event></app-event>
+<app-listdemo></app-listdemo>
 
-<ul>
-<li *ngFor="let event of events">
-{{event}}
-</li>
-</ul>
+<!--<p>Hello</p>-->
 
-<input type="text" [(ngModel)]="inputContent">
-<div>
-  {{inputContent}}
-</div>
+<!--<app-event></app-event>-->
 
-<button (click)="toggle()"
-        (dblclick)="demo($event)"
-        [disabled]="klikkeljunke"
->Toggle</button>
+<!--<hr>-->
+<!--{{title | uppercase}}-->
+<!--<hr>-->
+<!--{{PipeDemo | json}}-->
+<!--<hr>-->
 
-<div *ngIf="show">
-    <p>Jackson</p>
-</div>
+<!--<ul>-->
+<!--<li *ngFor="let event of events">-->
+<!--{{event}}-->
+<!--</li>-->
+<!--</ul>-->
 
-<div [ngClass]="{ 'valami' : show } ">
-  <p>
-    ngClassDemo
-  </p>
-</div>
+<!--<input type="text" [(ngModel)]="inputContent">-->
+<!--<div>-->
+  <!--{{inputContent}}-->
+<!--</div>-->
 
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
-<app-alma></app-alma>
+<!--<button (click)="toggle()"-->
+        <!--(dblclick)="demo($event)"-->
+        <!--[disabled]="klikkeljunke"-->
+<!--&gt;Toggle</button>-->
+
+<!--<div *ngIf="show">-->
+    <!--<p>Jackson</p>-->
+<!--</div>-->
+
+<!--<div [ngClass]="{ 'valami' : show } ">-->
+  <!--<p>-->
+    <!--ngClassDemo-->
+  <!--</p>-->
+<!--</div>-->
+
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
+<!--<app-alma></app-alma>-->
