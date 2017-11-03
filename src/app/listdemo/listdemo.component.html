@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let ev of events">{{ev.name}}
+  <li *ngFor="let ev of events">
+    <img [src]="ev.pic" width="56px" height="56px">
+    {{ev.name}}
   <button (click)="delete(ev.id) "
   >Remove</button>
   </li>
@@ -11,3 +13,5 @@
 <pre>
   {{ events | json }}
 </pre>
+
+
