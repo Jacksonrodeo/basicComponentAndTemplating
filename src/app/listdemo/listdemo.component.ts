@@ -86,17 +86,17 @@ export class ListdemoComponent {
         }
       });
 // takarítás
-      this.modifyEvent = new EventModel ('');
-    }
+this.modifyEvent = new EventModel ('');
+}
 
-    newEventNameInput.value = '';
-    newEventPicInput.value = '';
-  } //save end
+newEventNameInput.value = '';
+newEventPicInput.value = '';
+} //save end
 
-  edit(id: number) {
-    console.log(id);
-    this.modifyEvent = this.events.filter((ev) => ev.id === id) [0];
-  }
+edit(id: number) {
+  console.log(id);
+  this.modifyEvent = this.events.filter((ev) => ev.id === id) [0];
+}
 
 } //@component
 
