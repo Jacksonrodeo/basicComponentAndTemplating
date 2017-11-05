@@ -1,3 +1,4 @@
+///<reference path="event-model.ts"/>
 import {Component} from '@angular/core';
 import {EventModel} from './event-model';
 
@@ -10,6 +11,7 @@ import {EventModel} from './event-model';
 export class ListdemoComponent {
 
   events: EventModel[];
+  modifyEvent: EventModel;
 
   constructor() {
     this.events =
@@ -46,22 +48,55 @@ export class ListdemoComponent {
       ).id
     ;
     console.log(puf);
+    this.modifyEvent = new EventModel('');
   }
+
 
   delete(id: number) {
     // filter
     this.events = this.events.filter((ev: EventModel) => ev.id !== id);
   }
 
-  add(newEventNameInput: HTMLInputElement) {
-    const maxId = this.events.reduce((x, y) => x.id > y.id ? x : y).id;
-    const newId = maxId + 1;
-    console.log('newId: ' + newId);
-    this.events = [
-      ...this.events, new EventModel(newId, newEventNameInput.value, '')
-    ];
+  save(newEventNameInput: HTMLInputElement, newEventPicInput: HTMLInputElement) {
+    console.log('this.modifyEvent.id ' + this.modifyEvent.id );
+    if (this.modifyEvent.id === 0) {
+      const maxId = this.events.reduce((x, y) => x.id > y.id ? x : y).id;
+      const newId = maxId + 1;
+      console.log('newId: ' + newId);
+      this.events = [
+        ...this.events, new EventModel(newEventNameInput.value, newId, newEventPicInput.value)
+      ];
+      console.log('If ===0');
+    }
+    else
+ // edit szakasz
+    {
+      this.events=this.events.map( (ev) =>
+      {
+        if (ev.id === this.modifyEvent.id)
+        {
+          return {
+            id: ev.id,
+            name: newEventNameInput.value,
+            pic: newEventPicInput.value
+          };
+        }
+        else {
+          return ev;
+        }
+      });
+// takarítás
+      this.modifyEvent = new EventModel ('');
+    }
 
-    console.log(newEventNameInput.value);
     newEventNameInput.value = '';
+    newEventPicInput.value = '';
+  } //save end
+
+  edit(id: number) {
+    console.log(id);
+    this.modifyEvent = this.events.filter((ev) => ev.id === id) [0];
   }
-}
+
+} //@component
+
